@@ -1,0 +1,51 @@
+<html>
+<head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(initialize);
+	  
+      function initialize() {
+        // The URL of the spreadsheet to source data from.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1BmND6XHXcfJkCAC2ly3sozwjLNUSmTxzzwFs_xRVAOA/gviz/tq?sheet=Pivot Table 1');
+		//query.setQuery('select A, max(D) group by A pivot C');//A:time,C:title,D:score
+        query.send(drawChart);
+      }
+
+      function drawChart(response) {
+		if (response.isError()) {
+          alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        } else {
+			var data = response.getDataTable();
+			//alert(google.visualization.dataTableToCsv(data));
+			
+			var options = {
+			  title: 'r/polandball',
+			  chartArea: {width: '70%', height: '80%'},
+			  hAxis: {title: 'time',textStyle:{fontSize: 8},format:'#',maxAlternation:1,gridlines:{color:'white'}},
+			  vAxis: {title: 'score',minorGridlines:{count:0}},
+			  backgroundColor:{strokeWidth:10},
+			  fontName:'Calibri',
+			  //series: {0: {lineDashStyle :[5,1,3]}},
+			  tooltip:{
+				ignoreBounds:true,
+				showColorCode:true
+			  },
+			  explorer: { 
+				actions: ['dragToZoom', 'rightClickToReset'],
+				keepInBounds: true,
+				maxZoomIn: 100.0},
+			  legend: {position: 'right',textStyle:{fontSize:12}}
+			};
+
+			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+	
+		}
+      }
+</script>
+</head>
+<body>
+       <div id="chart_div" style="width: 100%; height: 100%;"></div>
+</body>
+</html>
