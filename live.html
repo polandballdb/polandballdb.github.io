@@ -40,12 +40,13 @@
 
 			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
-	
+			document.getElementById("loadmsg").innerHTML="";
 		}
       }
 </script>
 </head>
 <body>
+       <div id="loadmsg" style="width: 100%; font: 15px calibri">Fetching data...</div>
        <div id="chart_div" style="width: 100%; height: 100%;"></div>
 </body>
 </html>
