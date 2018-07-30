@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head><link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></head>
 
 ## Welcome to the Github home of Polandball DB.
 
