@@ -9,10 +9,8 @@ Main spreadsheets:
 * [stateball_main.xlsx](https://drive.google.com/open?id=1kJm46rGv0yao-c9vTXtvLiPviIwKq-dY)
 
 Others:
-* [Contest](https://drive.google.com/open?id=1hEMezCktpvPsT6Id4miHpeELCuLGDyyu)
-* Images
-
-<iframe src="https://drive.google.com/embeddedfolderview?id=1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd#list" style="border:0;"></iframe>
+* [Contests](https://drive.google.com/open?id=1hEMezCktpvPsT6Id4miHpeELCuLGDyyu)
+* [Images](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
 
 Things of interest:
 
