@@ -21,8 +21,8 @@
 			var dt = view.getValue(i, 0);
 			if (dt) {
 				var dstr = new Date(dt*1000);
-				if (dstr.getDate() != day) {
-					day = dstr.getDate();
+				if (dstr.getUTCDate() != day) {
+					day = dstr.getUTCDate();
 					dates.push({v:dt,f:dstr.toUTCString()});
 				}
 			}
