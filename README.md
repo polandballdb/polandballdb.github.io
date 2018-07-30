@@ -1,4 +1,4 @@
-#Welcome to the Github portion of Polandball DB.
+## Welcome to the Github side of Polandball DB.
 
 Things of interest:
 
