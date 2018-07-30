@@ -1,4 +1,4 @@
-## Welcome to Polandball DB.
+## Welcome to the Github home of Polandball DB.
 
 Main spreadsheets:
 
