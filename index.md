@@ -8,7 +8,9 @@ Main spreadsheets:
 * [planetball_main.xlsx](https://drive.google.com/open?id=18z2RlS8M2IUZ4kWmgdzWyEBRIEwZRXGt)
 * [stateball_main.xlsx](https://drive.google.com/open?id=1kJm46rGv0yao-c9vTXtvLiPviIwKq-dY)
 
+
 Others:
+
 * [Contests](https://drive.google.com/open?id=1hEMezCktpvPsT6Id4miHpeELCuLGDyyu)
 * [Images](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
 
@@ -16,5 +18,3 @@ Things of interest:
 
 * [Live Feed](/live)  
 * [Randomizer](/random)
-
-Back to [Google Sites](https://sites.google.com/view/polandballdb/).
