@@ -11,18 +11,38 @@
 		//query.setQuery('select A, max(D) group by A pivot C');//A:time,C:title,D:score
         query.send(drawChart);
       }
-
+	  
+	  function getDates(data) {
+		var view = new google.visualization.DataView(data);
+		view.setColumns([0]);
+		var dates = [];
+		var day = 0;
+		for (var i = 0; i < view.getNumberOfRows(); i++) {
+			var dt = view.getValue(i, 0);
+			if (dt) {
+				var dstr = new Date(dt*1000);
+				if (dstr.getDate() != day) {
+					day = dstr.getDate();
+					dates.push({v:dt,f:dstr.toUTCString()});
+				}
+			}
+		}
+		return dates.slice(1);
+	  }
+			
+			
       function drawChart(response) {
 		if (response.isError()) {
           alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         } else {
 			var data = response.getDataTable();
+			var dates = getDates(data);
 			//alert(google.visualization.dataTableToCsv(data));
 			
 			var options = {
 			  title: 'r/polandball',
-			  chartArea: {width: '70%', height: '80%'},
-			  hAxis: {title: 'time',textStyle:{fontSize: 8},format:'#',maxAlternation:1,gridlines:{color:'white'}},
+			  chartArea: {width: '75%', height: '80%',left:'10%'},
+			  hAxis: {title: 'time',textStyle:{fontSize: 8},format:'#',maxAlternation:1,gridlines:{color:'gray'},ticks:dates},
 			  vAxis: {title: 'score',minorGridlines:{count:0}},
 			  backgroundColor:{strokeWidth:10},
 			  fontName:'Calibri',
