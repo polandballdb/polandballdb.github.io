@@ -68,11 +68,11 @@ ga('send', 'pageview');
 		hr++;
 		chart.draw(data,options);
 		
-		if (hr<=48) {
-			//google.visualization.events.addOneTimeListener(chart, 'animationfinish', changeValue);
-		} else {
+		if (hr>48) {
 			hr=1;
 			google.visualization.events.removeAllListeners(chart);
+			document.getElementById('b2').innerHTML="Play";
+			state=0;
 		}
 	}
 	
