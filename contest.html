@@ -25,7 +25,7 @@ ga('send', 'pageview');
 		bar: {groupWidth: "50%"},
 		legend: { position: "none" },
 		hAxis: {textPosition:'none'},
-		animation: {duration:200,easing:'linear',startup:false},
+		animation: {duration:300,easing:'linear',startup:false},
 		annotations: {textStyle: {fontSize:12,bold: false}},
 		enableInteractivity:false
 	};
@@ -78,6 +78,7 @@ ga('send', 'pageview');
 		changeValue();
 		google.visualization.events.removeAllListeners(chart);
 		state=0;
+		document.getElementById('b2').innerHTML="Play";
 	}
 	
 	var state=1;
