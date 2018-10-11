@@ -18,3 +18,4 @@ Things of interest:
 
 * [Live Feed](/live)  
 * [Randomizer](/random)
+* [Contest Trends](/contest) (new!)
