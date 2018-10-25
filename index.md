@@ -12,12 +12,12 @@ Main spreadsheets:
 
 Images:
 
-* [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg)
+* [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg) (new!)
 * [Submissions](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
 
 Things of interest:
 
 * [Live Feed](/live)  
 * [Randomizer](/random)
-* [Contest Trends](/contest) (new!)
+* [Contest Trends](/contest)
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests) (new!)
