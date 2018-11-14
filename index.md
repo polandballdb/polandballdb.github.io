@@ -19,5 +19,5 @@ Things of interest:
 
 * [Live Feed](/live)  
 * [Randomizer](/random)
-* [Contest Trends](/contest)
+* [Contest Trends](/contest/race)
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests) (new!)
