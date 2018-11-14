@@ -1,0 +1,152 @@
+<html>
+<head>
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114379663-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(initialize);
+	
+	var jsonData;
+	var rawdata;
+	var options;
+	var chart;
+	
+	function initialize() {
+		jsonData = $.ajax({
+			url: "https://polandballdb.github.io/contest/contestdata.json",
+			dataType: "json",
+			async: false
+			}).responseJSON;
+		
+		var selectContest = document.getElementById("selectcontest");
+		for (var title in jsonData){
+			var option = document.createElement("option");
+			option.text = title;
+			option.value = title;
+			selectContest.add(option);
+			
+		};
+
+		drawChart();
+	}
+	
+	function getRandomColor() {
+		var letters = '0123456789ABCDEF'.split('');
+		var color = '#';
+		for (var i = 0; i < 6; i++ ) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	}   
+	
+	function drawChart() {
+		var selectContest = document.getElementById("selectcontest");
+		rawdata=jsonData[selectContest.value];
+		options = {
+				title: "r/Polandball Contest: " + selectContest.value,
+				hAxis: {minValue:0, maxValue:Math.max(...rawdata[0].slice(1))},
+				chartArea: {width: '100%', height: '90%',left:'0'},
+				bar: {groupWidth: "50%"},
+				legend: { position: "none" },
+				vAxis: {textPosition:'none'},
+				animation: {duration:300,easing:'linear',startup:false},
+				annotations: {textStyle: {fontSize:12,bold: false}},
+				enableInteractivity:false
+		};
+	
+		var array=[["User", "Score", { role: "style" }, { role: "annotation"}]];
+		for (var i = 0; i < rawdata.length; ++i) {
+			var atr= rawdata[i][0];
+			array.push([atr,0,getRandomColor(),atr]);
+		}
+		array[1][2]='gold'
+		array[2][2]='silver'
+		array[3][2]='#b87333'
+		
+		data = new google.visualization.arrayToDataTable(array);
+		
+		chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+		chart.draw(data, options);
+		changeValue()
+		google.visualization.events.addListener(chart, 'animationfinish', changeValue);
+	}
+	
+	var hr=1;
+	function changeValue() {
+		for (var i = 0; i < data.getNumberOfRows(); ++i) {
+			data.setValue(i, 1, rawdata[i][hr]);
+		}
+		document.getElementById('timer').innerHTML="Hour "+ String(hr);
+		hr++;
+		chart.draw(data,options);
+		
+		if (hr>48) {
+			hr=1;
+			google.visualization.events.removeAllListeners(chart);
+			document.getElementById('b2').innerHTML="Play";
+			state=0;
+		}
+	}
+	
+	function resetAnim() {
+		hr = 1;
+		changeValue();
+		google.visualization.events.removeAllListeners(chart);
+		state=0;
+		document.getElementById('b2').innerHTML="Play";
+	}
+	
+	var state=1;
+	function toggleAnim(){
+		if (state===0) {
+			state=1
+			changeValue()
+			google.visualization.events.addListener(chart, 'animationfinish', changeValue);
+			document.getElementById('b2').innerHTML="Pause";
+		} else {
+			state=0
+			google.visualization.events.removeAllListeners(chart);
+			document.getElementById('b2').innerHTML="Play";
+		}
+	}
+	
+	function changeView(){
+		var port = document.getElementById("view");
+		if (port.innerHTML=='Fixed'){
+			options['hAxis']=null;
+			port.innerHTML='Free'
+		} else {
+			options['hAxis']={minValue:0, maxValue:Math.max(...rawdata[0].slice(1))};
+			port.innerHTML='Fixed'
+		}
+	}
+	
+	function switchContest(){
+		resetAnim();
+		drawChart();
+	}
+</script>
+</head>
+<body>
+	<select id="selectcontest" onchange="switchContest()"></select>
+	<button id="view" type="reset" onclick="changeView()">Fixed</button> <div id="timer" style="font-size:12px;font-family:verdana;margin-top:3px;margin-left:2px;">Hour 1</div>
+
+	<div id="chart_div" style="width: 100%; height: 100%;"></div>
+	<button id="b2" type="reset" onclick="toggleAnim()">Pause</button>
+	<button id="b1" type="reset" onclick="resetAnim()">Reset</button>
+	
+</body>
+</html>
