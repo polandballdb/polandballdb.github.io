@@ -14,6 +14,7 @@ Images:
 
 * [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg)
 * [Submissions](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
+* [Hussar Overview](/contest/hussarpic.png)
 
 Things of interest:
 
@@ -21,4 +22,3 @@ Things of interest:
 * [Randomizer](/random)
 * [Contest Race](/contest/race)
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)
-* [Hussar Overview](/contest/hussarpic.png)
