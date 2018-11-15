@@ -12,13 +12,13 @@ Main spreadsheets:
 
 Images:
 
-* [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg) (new!)
+* [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg)
 * [Submissions](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
 
 Things of interest:
 
 * [Live Feed](/live)  
 * [Randomizer](/random)
-* [Contest Trends](/contest/race)
-* [Hussar Overview](/contest/hussarpic)
-* [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests) (new!)
+* [Contest Race](/contest/race)
+* [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)
+* [Hussar Overview](/contest/hussarpic.png)
