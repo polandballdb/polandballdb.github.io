@@ -14,7 +14,7 @@ Images:
 
 * [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg)
 * [Submissions](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
-* [Hussar Overview](/contest/hussarpic.png)
+* [Hussar](/contest/hussarpic.png)
 
 Things of interest:
 
