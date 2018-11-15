@@ -20,4 +20,5 @@ Things of interest:
 * [Live Feed](/live)  
 * [Randomizer](/random)
 * [Contest Trends](/contest/race)
+* [Hussar Overview](/contest/hussarpic)
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests) (new!)
