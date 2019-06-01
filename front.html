@@ -16,14 +16,14 @@ ga('send', 'pageview');
 .art-bd-img{
 	object-fit:cover;
 	width:300px; 
-	max-height:300px;
+	max-height:320px;
 }
 
 .reddit-self{
 	text-overflow:ellipsis;
 	overflow:hidden;
 	width:100%; 
-	max-height:300px
+	max-height:320px
 }
 
 div.embedly-card{
@@ -80,10 +80,20 @@ p {
 			if (comics !== undefined) {
 				for (var i = 0; i < comics.length; i++) {
 					var id = comics[i];
-					//console.log(comics);
-					//console.log(year.toString());
-					//console.log(id);
-					document.getElementById(year.toString()).innerHTML += '<blockquote class="reddit-card" data-card-width="300px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
+					
+					/*
+					var bq = document.createElement("BLOCKQUOTE");
+					bq.setAttribute("class","reddit-card");
+					bq.setAttribute("data-card-width","320px");
+					bq.setAttribute("data-card-preview","1");
+					
+					var embed = document.createElement("A");
+					embed.setAttribute("href","https://www.reddit.com/r/polandball/comments/"+id+"/");
+					
+					bq.appendChild(embed);
+					document.getElementById(year.toString()).appendChild(bq);
+					*/
+					document.getElementById(year.toString()).innerHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
 				}
 			}
 		}
