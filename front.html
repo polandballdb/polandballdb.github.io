@@ -52,6 +52,20 @@ p {
 	var date = new Date();
 	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	
+	jsonData = $.ajax({
+		url: "https://polandballdb.github.io/data/date_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
+		
+	for (var y in jsonData){
+		for (var m = 1; m < 13; m++) {
+			if (jsonData[y][m] === undefined){
+				jsonData[y][m] = {};
+			}
+		}
+	}
+			
 	function init(){
 		document.getElementById("month").value = date.getMonth()+1;
 		document.getElementById("day").value = date.getDate();
@@ -61,39 +75,34 @@ p {
 	
 	
 	function main() {
-	
-		jsonData = $.ajax({
-			url: "https://polandballdb.github.io/data/date_ids.json",
-			dataType: "json",
-			async: false
-			}).responseJSON;
 			
-		var month = document.getElementById("month").value;
-		var day = document.getElementById("day").value;
-		
+		var month = Number(document.getElementById("month").value);
+		var day = Number(document.getElementById("day").value);
 		
 		document.getElementById("title").innerHTML = 'r/polandball - ' +months[month-1] +' ' + day;
 		
 		for (var year in jsonData){
-			document.getElementById(year.toString()).innerHTML = '';
-			var comics = jsonData[year][month][day];
-			if (comics !== undefined) {
-				for (var i = 0; i < comics.length; i++) {
-					var id = comics[i];
-					
-					/*
-					var bq = document.createElement("BLOCKQUOTE");
-					bq.setAttribute("class","reddit-card");
-					bq.setAttribute("data-card-width","320px");
-					bq.setAttribute("data-card-preview","1");
-					
-					var embed = document.createElement("A");
-					embed.setAttribute("href","https://www.reddit.com/r/polandball/comments/"+id+"/");
-					
-					bq.appendChild(embed);
-					document.getElementById(year.toString()).appendChild(bq);
-					*/
-					document.getElementById(year.toString()).innerHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
+			if (year != 2019) {
+				document.getElementById(year).innerHTML = '';
+				var comics = jsonData[year][month][day];
+				if (comics !== undefined) {		
+					for (var i = 0; i < comics.length; i++) {
+						var id = comics[i];
+						
+						/*
+						var bq = document.createElement("BLOCKQUOTE");
+						bq.setAttribute("class","reddit-card");
+						bq.setAttribute("data-card-width","320px");
+						bq.setAttribute("data-card-preview","1");
+						
+						var embed = document.createElement("A");
+						embed.setAttribute("href","https://www.reddit.com/r/polandball/comments/"+id+"/");
+						
+						bq.appendChild(embed);
+						document.getElementById(year.toString()).appendChild(bq);
+						*/
+						document.getElementById(year.toString()).innerHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
+					}
 				}
 			}
 		}
