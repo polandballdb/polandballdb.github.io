@@ -75,8 +75,8 @@ p {
 		document.getElementById("title").innerHTML = 'r/polandball - ' +months[month-1] +' ' + day;
 		
 		for (var year in jsonData){
-			var comics = jsonData[year][month][day];
 			document.getElementById(year.toString()).innerHTML = '';
+			var comics = jsonData[year][month][day];
 			if (comics !== undefined) {
 				for (var i = 0; i < comics.length; i++) {
 					var id = comics[i];
