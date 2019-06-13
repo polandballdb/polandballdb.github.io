@@ -18,6 +18,7 @@ Images:
 
 Things of interest:
 
+* [Time Machine](/front)
 * [Live Feed](/live)  
 * [Randomizer](/random)
 * [Contest Race](/contest/race)
