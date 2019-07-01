@@ -71,8 +71,7 @@ div.embedly-card{
 	var authors = Object.keys(authorData);
 	var authorsLower = authors.map(v => v.toLowerCase());
 	
-	function main() {
-		
+	function main() {	
 		var input = document.getElementById("author").value.toLowerCase();
 		if (authorsLower.includes(input)){
 			for (const atr of authors){
@@ -102,16 +101,21 @@ div.embedly-card{
 			document.getElementById("name").innerHTML = 'Author';
 		}
 	}
-
-
+	
+	document.addEventListener("keyup", function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			document.getElementById("search").click();
+		}
+	}); 
 </script>
 </head>
 <body>
 
 
 <div style="font-family:calibri;font-size:14px;">
-<input type="text" id="author">
-<button onclick="main()" type="button">Search</button> 
+<input type="text" id="author" autofocus>
+<button onclick="main()" type="button" id="search">Search</button> 
 <input type="checkbox" id="redditormade" checked>redditormade
 <input type="checkbox" id="berndmade" checked>berndmade
 <input type="checkbox" id="repost" checked>repost
