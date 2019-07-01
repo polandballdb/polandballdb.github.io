@@ -91,9 +91,7 @@ div.embedly-card{
 						}
 					}
 					
-					if ((ct +' comics found') != document.getElementById("title").innerHTML){
-						document.getElementById("cards").innerHTML = blockHTML;
-					}
+					document.getElementById("cards").innerHTML = blockHTML;
 					document.getElementById("title").innerHTML = ct +' comics found';
 					break;
 				}
@@ -108,17 +106,18 @@ div.embedly-card{
 
 </script>
 </head>
-<body onload="main()">
+<body>
 
 
 <div style="font-family:calibri;font-size:14px;">
-<input type="text" id="author" value="Author name" onchange="main()" >
-<input type="checkbox" id="redditormade" checked onclick="main()">redditormade
-<input type="checkbox" id="berndmade" checked onclick="main()">berndmade
-<input type="checkbox" id="repost" checked onclick="main()">repost
-<input type="checkbox" id="meta" checked onclick="main()">meta
-<input type="checkbox" id="collaboration" checked onclick="main()">collaboration
-</div><p id="title"></p>
+<input type="text" id="author">
+<button onclick="main()" type="button">Search</button> 
+<input type="checkbox" id="redditormade" checked>redditormade
+<input type="checkbox" id="berndmade" checked>berndmade
+<input type="checkbox" id="repost" checked>repost
+<input type="checkbox" id="meta" checked>meta
+<input type="checkbox" id="collaboration" checked>collaboration<br>
+</div><p id="title">Author name</p>
 
 <div>
 <p class="header" id="name">Author</p><hr><div id="cards"></div>
