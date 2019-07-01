@@ -56,41 +56,69 @@ div.embedly-card{
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
-	jsonData = $.ajax({
+	authorData = $.ajax({
 		url: "https://polandballdb.github.io/data/author_ids.json",
 		dataType: "json",
 		async: false
 		}).responseJSON;
+		
+	flairData = $.ajax({
+		url: "https://polandballdb.github.io/data/flair_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
 	
-	function init(){
-		document.getElementById("name").innerHTML='Author';
-		document.getElementById("cards").innerHTML='';
-		main();
-	}
-	
+	var authors = Object.keys(authorData);
+	var authorsLower = authors.map(v => v.toLowerCase());
 	
 	function main() {
-		var author = document.getElementById("author").value;
-		if (author in jsonData){
-			var comics = jsonData[author];
-			document.getElementById("title").innerHTML = 'r/polandball - ' + comics.length +' comics found';
-			document.getElementById("name").innerHTML=author;
-			for (var i = 0; i < comics.length; i++) {
-				var id = comics[i];
-				document.getElementById("cards").innerHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
+		
+		var input = document.getElementById("author").value.toLowerCase();
+		if (authorsLower.includes(input)){
+			for (const atr of authors){
+				if (atr.toLowerCase() === input) {
+					var comics = authorData[atr];
+					document.getElementById("name").innerHTML = atr;
+					
+					var blockHTML = '';
+					var ct = 0;
+					for (var i = 0; i < comics.length; i++) {
+						var id = comics[i];
+						var flair = flairData[id];
+						if (!(["redditormade","berndmade","repost","meta","collaboration"].includes(flair))||document.getElementById(flair).checked) {
+							blockHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
+							ct++;
+						}
+					}
+					
+					if ((ct +' comics found') != document.getElementById("title").innerHTML){
+						document.getElementById("cards").innerHTML = blockHTML;
+					}
+					document.getElementById("title").innerHTML = ct +' comics found';
+					break;
+				}
 			}
 		} else {
-			document.getElementById("title").innerHTML = 'r/polandball - Invalid user';
+			document.getElementById("title").innerHTML = 'Invalid user';
+			document.getElementById("cards").innerHTML = '';
+			document.getElementById("name").innerHTML = 'Author';
 		}
 	}
 
 
 </script>
 </head>
-<body onload="init()">
+<body onload="main()">
 
-<p id="title">r/polandball</p>
-<input type="text" id="author" value="Barskie" onchange="init()" >
+
+<div style="font-family:calibri;font-size:14px;">
+<input type="text" id="author" value="Author name" onchange="main()" >
+<input type="checkbox" id="redditormade" checked onclick="main()">redditormade
+<input type="checkbox" id="berndmade" checked onclick="main()">berndmade
+<input type="checkbox" id="repost" checked onclick="main()">repost
+<input type="checkbox" id="meta" checked onclick="main()">meta
+<input type="checkbox" id="collaboration" checked onclick="main()">collaboration
+</div><p id="title"></p>
 
 <div>
 <p class="header" id="name">Author</p><hr><div id="cards"></div>
