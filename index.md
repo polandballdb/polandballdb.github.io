@@ -18,6 +18,7 @@ Images:
 
 Things of interest:
 
+* [Artist Look Up](/author) (new!)
 * [Time Machine](/front) (new!)
 * [Live Feed](/live)  
 * [Randomizer](/random)
