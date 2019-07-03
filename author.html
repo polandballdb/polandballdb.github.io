@@ -17,6 +17,7 @@ ga('send', 'pageview');
 	font: 40px "Trebuchet MS", Helvetica, sans-serif;
 	color:dimgrey;
 	margin:auto;
+	margin-top:10px;
 }
 
 #title {
@@ -69,13 +70,13 @@ div.embedly-card{
 <script type="text/javascript">
 	
 	authorData = $.ajax({
-		url: "https://polandballdb.github.io/data/2author_ids.json",
+		url: "https://polandballdb.github.io/data/author_ids.json",
 		dataType: "json",
 		async: false
 		}).responseJSON;
 		
 	flairData = $.ajax({
-		url: "https://polandballdb.github.io/data/2flair_ids.json",
+		url: "https://polandballdb.github.io/data/flair_ids.json",
 		dataType: "json",
 		async: false
 		}).responseJSON;
@@ -172,15 +173,14 @@ div.embedly-card{
 </head>
 <body onload="init()">
 
-
 <div class="align-right">
-
-<input type="checkbox" class="subreddit" id="polandball" checked>polandball
-<input type="checkbox" class="subreddit" id="polandballart" checked>polandballart
-<input type="checkbox" class="subreddit" id="polandballgifs" checked>polandballgifs
-<input type="checkbox" class="subreddit" id="stateball" checked>stateball
-<input type="checkbox" class="subreddit" id="planetball" checked>planetball
+polandball<input type="checkbox" class="subreddit" id="polandball" checked><br>
+polandballart<input type="checkbox" class="subreddit" id="polandballart" checked><br>
+polandballgifs<input type="checkbox" class="subreddit" id="polandballgifs" checked><br>
+stateball<input type="checkbox" class="subreddit" id="stateball" checked><br>
+planetball<input type="checkbox" class="subreddit" id="planetball" checked>
 </div>
+
 <div style="font-family:calibri;font-size:14px;">
 <input type="text" id="author" autofocus>
 <button onclick="main()" type="button" id="search">Search</button> 
