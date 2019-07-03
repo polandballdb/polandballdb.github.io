@@ -92,10 +92,6 @@ div.embedly-card{
 	let params = new URLSearchParams(location.search);
 	
 	function init() {
-		if (params.get('user')){
-			document.getElementById("author").value = params.get('user');
-		}
-		
 		if (params.get('sub')){
 			for (const sr of document.getElementsByClassName("subreddit")) {
 				if (sr.id != params.get('sub')) {
@@ -104,8 +100,9 @@ div.embedly-card{
 			}
 		}
 		
-		if (params.get('user')||params.get('sub')){
-			main()
+		if (params.get('user')){
+			document.getElementById("author").value = params.get('user');
+			main();
 		}
 	}
 	function main() {	
