@@ -24,6 +24,18 @@ ga('send', 'pageview');
 	font-style:bold;
 	margin:auto;
 }
+
+.align-right {
+	position:absolute;
+	font-family:calibri;
+	right:5px;
+	float: right;
+	text-align: right;
+	margin-top: 0;
+	font-size:14px;
+	
+}
+
 </style>
 <style class="embedly-css">
 .art-bd-img{
@@ -57,13 +69,19 @@ div.embedly-card{
 <script type="text/javascript">
 	
 	authorData = $.ajax({
-		url: "https://polandballdb.github.io/data/author_ids.json",
+		url: "https://polandballdb.github.io/data/2author_ids.json",
 		dataType: "json",
 		async: false
 		}).responseJSON;
 		
 	flairData = $.ajax({
-		url: "https://polandballdb.github.io/data/flair_ids.json",
+		url: "https://polandballdb.github.io/data/2flair_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
+		
+	subData = $.ajax({
+		url: "https://polandballdb.github.io/data/sub_ids.json",
 		dataType: "json",
 		async: false
 		}).responseJSON;
@@ -75,31 +93,67 @@ div.embedly-card{
 	
 	function init() {
 		if (params.get('user')){
-			document.getElementById("author").value = params.get('user')
+			document.getElementById("author").value = params.get('user');
+		}
+		
+		if (params.get('sub')){
+			for (const sr of document.getElementsByClassName("subreddit")) {
+				if (sr.id != params.get('sub')) {
+					sr.checked = false;
+				}
+			}
+		}
+		
+		if (params.get('user')||params.get('sub')){
 			main()
 		}
 	}
 	function main() {	
 		var input = document.getElementById("author").value.toLowerCase();
+		var okSub = []
+		var banFlair = []
+		for (const sr of document.getElementsByClassName("subreddit")) {
+			if (sr.checked) {
+				okSub = okSub.concat(subData[sr.id]);
+			}
+		}
+		for (const fr of document.getElementsByClassName("flair")) {
+			if (!fr.checked) {
+				banFlair = banFlair.concat(flairData[fr.id]);
+				if (fr.id=='redditormade') {
+					banFlair = banFlair.concat(flairData['contest entry']);
+				}
+			}
+		}
+		
 		if (authorsLower.includes(input)){
 			for (const atr of authors){
 				if (atr.toLowerCase() === input) {
 					var comics = authorData[atr];
+					comics.sort(function(a, b) {
+						return a.length - b.length || a.localeCompare(b)
+					});
 					document.getElementById("name").innerHTML = atr;
 					
 					var blockHTML = '';
 					var ct = 0;
 					for (var i = 0; i < comics.length; i++) {
 						var id = comics[i];
-						var flair = flairData[id];
-						if (!(["redditormade","berndmade","repost","meta","collaboration"].includes(flair))||document.getElementById(flair).checked) {
-							blockHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
-							ct++;
+						
+						//var flair = flairData[id];
+						//if (okSub.includes(id)&&(!(["redditormade","berndmade","repost","meta","collaboration"].includes(flair))||document.getElementById(flair).checked)) {
+						if (okSub.includes(id)&&!(banFlair.includes(id))) {
+							for (const sr in subData){
+								if (subData[sr].includes(id)){
+									blockHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/'+sr+'/comments/'+id+'/"></a></blockquote>';
+									ct++;									
+								}
+							}
 						}
 					}
 					
 					document.getElementById("cards").innerHTML = blockHTML;
-					document.getElementById("title").innerHTML = ct +' comics found';
+					document.getElementById("title").innerHTML = ct +' results found';
 					break;
 				}
 			}
@@ -122,15 +176,27 @@ div.embedly-card{
 <body onload="init()">
 
 
+<div class="align-right">
+
+<input type="checkbox" class="subreddit" id="polandball" checked>polandball
+<input type="checkbox" class="subreddit" id="polandballart" checked>polandballart
+<input type="checkbox" class="subreddit" id="polandballgifs" checked>polandballgifs
+<input type="checkbox" class="subreddit" id="stateball" checked>stateball
+<input type="checkbox" class="subreddit" id="planetball" checked>planetball
+</div>
 <div style="font-family:calibri;font-size:14px;">
 <input type="text" id="author" autofocus>
 <button onclick="main()" type="button" id="search">Search</button> 
-<input type="checkbox" id="redditormade" checked>redditormade
-<input type="checkbox" id="meta" checked>meta
-<input type="checkbox" id="collaboration" checked>collaboration
-<input type="checkbox" id="berndmade">berndmade
-<input type="checkbox" id="repost">repost<br>
-</div><p id="title">Author name</p>
+<input type="checkbox" class="flair" id="redditormade" checked>redditormade
+<input type="checkbox" class="flair" id="meta" checked>meta
+<input type="checkbox" class="flair" id="collaboration" checked>collaboration
+<input type="checkbox" class="flair" id="berndmade">berndmade
+<input type="checkbox" class="flair" id="repost">repost
+</div>
+
+
+<p id="title">Author name</p>
+
 
 <div>
 <p class="header" id="name">Author</p><hr><div id="cards"></div>
