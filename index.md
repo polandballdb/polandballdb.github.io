@@ -1,6 +1,6 @@
 ## Welcome to the Github home of Polandball DB.
 
-Main spreadsheets:
+**Main spreadsheets:**
 
 * [polandball_main.xlsx](https://drive.google.com/open?id=1qrQR87VqKnkxJZwSqgVWNXoBZ3HI9LzP)
 * [polandballart_main.xlsx](https://drive.google.com/open?id=1n_hfVC6FD0yzxRDV07ftr7b9ruWaCJV1)
@@ -10,17 +10,17 @@ Main spreadsheets:
 * [ContestStats.xlsx](https://drive.google.com/open?id=1hEMezCktpvPsT6Id4miHpeELCuLGDyyu)
 
 
-Images:
+**Images:**
 
 * [Contest Entries](https://drive.google.com/drive/folders/1PoDkqOax82N7syeyW-_iHErJ_2uSGXIg)
 * [Submissions](https://drive.google.com/drive/folders/1WFTdCF4tYjFvX-zeUFSaYvexGVHIBYzd)
 * [Hussars](/contest/hussarpic.png)
 
-Things of interest:
+**Utilities:**
 
 * [Artist Lookup](/author) (new!)
 
-View an artist's entire body of work across the polandball sphere. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the *user* and *sub* queries, which you can later share: https://polandballdb.github.io/author?user=Barskie&sub=polandballart
+View an artist's entire body of work across the polandball sphere. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the *user* and *sub* queries, which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
 
 * [Time Machine](/front) (new!)
 
@@ -32,7 +32,7 @@ Lightweight polandball reader, randomly browse over 18k polandball comics in you
 
 * [Live Feed](/live)
 
-Live visualization of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.
+*Live visualization of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.*
 
 
 * [Contest Race](/contest/race)
