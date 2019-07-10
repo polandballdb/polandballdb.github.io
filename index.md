@@ -18,8 +18,7 @@
 
 **Utilities:**
 
-[Artist Lookup](/author) (new!)
-
+[Artist Lookup](/author) (new!)  
 > View an artist's entire body of work across the polandball sphere. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the *user* and *sub* queries, which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
 
 [Time Machine](/front) (new!)
