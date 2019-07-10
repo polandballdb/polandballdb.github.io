@@ -19,7 +19,7 @@
 **Utilities:**
 
 * [Artist Lookup](/author) (new!)  
-> View an artist's entire body of work across the polandball sphere. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the *user* and *sub* queries, which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
+> View an artist's entire body of work across the polandball sphere. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the 'user' and 'sub' queries, which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
 
 * [Time Machine](/front) (new!)  
 > View the front page of r/polandball on a specified day in the past, across all years.
@@ -34,4 +34,4 @@
 > Visualization of r/polandball contest entries and their voting patterns over a specified contest.
 
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)  
-> Visualization of r/polandball contest championship if scores were normalized and combined across all contests.
+> Visualization of r/polandball contest championship if scores were normalized and accumulated across all contests.
