@@ -26,13 +26,14 @@ View an artist's entire body of work across the polandball sphere. Filterable by
 
 View the front page of r/polandball on a specified day in the past, across all years.
 
-* [Live Feed](/live)
-
-A live feed of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.
-
 * [Randomizer](/random)
 
 Lightweight polandball reader, randomly browse over 18k polandball comics in your browser. Comics range from 2013-present, and may vary in quality. Saves progress so you will never read the same comic twice. Optimised for desktop with keyboard controls for faster viewing.
+
+* [Live Feed](/live)
+
+Live visualization of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.
+
 
 * [Contest Race](/contest/race)
 
