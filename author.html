@@ -170,6 +170,12 @@ div.embedly-card{
 			document.getElementById("search").click();
 		}
 	}); 
+	
+	function random(){
+		var rand = authors[Math.floor(Math.random() * authors.length)];
+		document.getElementById('author').value=rand;
+		main();
+	}
 
 </script>
 </head>
@@ -184,6 +190,7 @@ planetball<input type="checkbox" class="subreddit" id="planetball" checked>
 </div>
 
 <div style="font-family:calibri;font-size:14px;">
+<button type="button" onclick="random()" style="font-size:15px;font-weight:bold;">⭮</button> 
 <input type="text" id="author" autofocus>
 <button onclick="main()" type="button" id="search">Search</button> 
 <input type="checkbox" class="flair" id="redditormade" checked>redditormade
