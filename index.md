@@ -18,28 +18,26 @@
 
 **Utilities:**
 
-* [Artist Lookup](/author) (new!)
+[Artist Lookup](/author) (new!)
 
 View an artist's entire body of work across the polandball sphere. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the *user* and *sub* queries, which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
 
-* [Time Machine](/front) (new!)
+[Time Machine](/front) (new!)
 
 View the front page of r/polandball on a specified day in the past, across all years.
 
-* [Live Feed](/live)
+[Live Feed](/live)
 
-*Live visualization of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.*
+Live visualization of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.
 
-* [Randomizer](/random)
+[Randomizer](/random)
 
 Lightweight polandball reader, randomly browse over 18k polandball comics in your browser. Comics range from 2013-present, and may vary in quality. Saves progress so you will never read the same comic twice. Optimised for desktop with keyboard controls for faster viewing.
 
-
-
-* [Contest Race](/contest/race)
+[Contest Race](/contest/race)
 
 Visualization of r/polandball contest entries and their voting patterns over a specified contest.
 
-* [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)
+[All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)
 
 Visualization of r/polandball contest championship if scores were normalized and combined across all contests.
