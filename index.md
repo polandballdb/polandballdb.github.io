@@ -36,5 +36,5 @@
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)  
 > Visualization of r/polandball contest championship if scores were normalized and accumulated across all contests.
 
-* [Query Author](/qatr)
-> Find the author for a given post.
+* [Post query](/qatr)
+> Shows the author & image backup for a given post (if available).
