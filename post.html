@@ -1,0 +1,116 @@
+<html>
+<head>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114379663-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<style>
+.header{
+	text-align:center;
+	font: 40px "Trebuchet MS", Helvetica, sans-serif;
+	color:dimgrey;
+	margin:auto;
+	margin-top:20px;
+}
+.center{
+	text-align:center;
+	font: 20px "Trebuchet MS", Helvetica, sans-serif;
+	margin:auto;
+	margin-top:20px;
+}
+
+img {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:20px;
+	max-width:70%;
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	let params = new URLSearchParams(location.search);
+	function init() {
+		document.getElementById("postid").addEventListener("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				document.getElementById("search").click();
+			}
+		}); 
+		if (params.get('id')){
+			document.getElementById("postid").value = params.get('id');
+			main();
+		}
+	}
+	
+	
+	authorData = $.ajax({
+		url: "https://polandballdb.github.io/data/author_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
+		
+	backup = $.ajax({
+		url: "https://polandballdb.github.io/data/randomizer.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
+		
+	var idatrs = {};
+	for (const atr in authorData) {
+		for (const id of authorData[atr]){
+			idatrs[id]=atr;
+		}
+	}
+	
+	
+	function main() {	
+		var id = document.getElementById("postid").value;
+		if (id.indexOf("/r/polandball/comments/")>0) {
+			id=id.substring(id.indexOf("/r/polandball/comments/")+"/r/polandball/comments/".length)
+			id=id.substring(0,id.indexOf("/"))
+		} else if (id.indexOf("redd.it/")>0) {
+			id=id.substring(id.indexOf("redd.it/")+"redd.it/".length)
+		}
+		
+		var atr = idatrs[id];
+		document.getElementById("name").innerHTML = atr;
+		document.getElementById("viewmore").href="https://polandballdb.github.io/author?user="+atr;
+		document.getElementById("bimg").src = document.getElementById("loadicon").src;
+		
+		for (var i = 0; i < backup.length; i++) {
+			if (backup[i][3]==id) {
+				document.getElementById("bimg").src = "https://drive.google.com/uc?id="+backup[i][0];
+				break;
+			}
+		}
+	}
+	
+	
+</script>
+</head>
+<body onload="init()">
+
+<div><p class="header" id="name">Comic URL or post ID</p><hr></div>
+<div class="header"><input class="header" type="text" id="postid" style="font-size:30px;width:500px;" autofocus></div>
+
+<div class="center">
+<button onclick="main()" type="button" id="search">Search</button><br><br>
+<a href="https://polandballdb.github.io/author" target="_blank" id="viewmore">View Comics</a>
+</div>
+
+<img id="bimg" style="display: block;">
+<img id="loadicon" src="https://polandballdb.github.io/asset/loadicon.gif"," style="display: none;">
+
+
+</body>
+</html>
