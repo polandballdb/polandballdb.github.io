@@ -19,6 +19,12 @@ ga('send', 'pageview');
 	margin:auto;
 	margin-top:20px;
 }
+.center{
+	text-align:center;
+	font: 20px "Trebuchet MS", Helvetica, sans-serif;
+	margin:auto;
+	margin-top:20px;
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -30,15 +36,19 @@ ga('send', 'pageview');
 		async: false
 		}).responseJSON;
 		
-	var idatrs = []
+	var idatrs = {};
 	for (const atr in authorData) {
-		idatrs[authorData[atr]]=atr;
+		for (const id of authorData[atr]){
+			idatrs[id]=atr;
+		}
 	}
 	main()
 	
 	function main() {	
 		var input = document.getElementById("postid").value;
-		document.getElementById("name").innerHTML = idatrs[input];
+		var atr = idatrs[input];
+		document.getElementById("name").innerHTML = atr;
+		document.getElementById("viewmore").href="https://polandballdb.github.io/author?user="+atr;
 	}
 	
 	function init() {
@@ -62,8 +72,10 @@ ga('send', 'pageview');
 <input class="header" type="text" id="postid" autofocus>
 </div>
 
-<div class="header">
-<button onclick="main()" type="button" id="search">Search</button> 
+<div class="center">
+<button onclick="main()" type="button" id="search">Search</button><br><br>
+
+<a href="https://polandballdb.github.io/author" id="viewmore">View Comics</a>
 </div>
 
 
