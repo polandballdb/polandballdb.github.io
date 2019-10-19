@@ -19,7 +19,7 @@
 **Utilities:**
 
 * [Artist Lookup](/author)
-> View an artist's entire body of work across the r/polandball network. Filterable by post flair or subreddit. You can specify user or subreddit by creating a custom link using the 'user' and 'sub' queries, which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
+> View an artist's entire body of work across the r/polandball network. Filterable by post flair or subreddit. Create a custom url using the 'user' and 'sub' queries which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
 
 * [Front Page](/front)  
 > View the front page of r/polandball on a specified day in the past, across all years.
