@@ -18,9 +18,6 @@
 
 **Utilities:**
 
-* [Query Author](/qatr)
-> Find the author for a given post.
-
 * [Artist Lookup](/author)
 > View an artist's entire body of work across the r/polandball network. Filterable by post flair or subreddit. Create a custom url using the 'user' and 'sub' queries which you can later share: [https://polandballdb.github.io/author?user=Barskie&sub=polandballart](https://polandballdb.github.io/author?user=Barskie&sub=polandballart)
 
@@ -38,3 +35,6 @@
 
 * [All-Time Top 50](https://www.reddit.com/r/polandballdb/wiki/index/contests)  
 > Visualization of r/polandball contest championship if scores were normalized and accumulated across all contests.
+
+* [Query Author](/qatr)
+> Find the author for a given post.
