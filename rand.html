@@ -9,12 +9,12 @@
 		
 	let params = new URLSearchParams(location.search);
 	if (params.get('num')){
-		for (var i = 0; i < Number(params.get('num')); i++) {
+		for (var i = 0; i < Number(params.get('num')-1); i++) {
 			window.open("https://redd.it/" + ids[Math.floor(Math.random()*ids.length)]);
 		}
-	} else {
-		window.location = "https://redd.it/" + ids[Math.floor(Math.random()*ids.length)];
 	}
+	window.location = "https://redd.it/" + ids[Math.floor(Math.random()*ids.length)];
+
 </script>
   
 </body>
