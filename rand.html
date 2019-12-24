@@ -6,8 +6,15 @@
 		dataType: "json",
 		async: false
 		}).responseJSON['polandball'];
-	
-	window.location = "https://redd.it/" + ids[Math.floor(Math.random()*ids.length)];
+		
+	let params = new URLSearchParams(location.search);
+	if (params.get('num')){
+		for (var i = 0; i < Number(params.get('num')); i++) {
+			window.open("https://redd.it/" + ids[Math.floor(Math.random()*ids.length)]);
+		}
+	} else {
+		window.location = "https://redd.it/" + ids[Math.floor(Math.random()*ids.length)];
+	}
 </script>
   
 </body>
