@@ -1,0 +1,111 @@
+<html>
+<head>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114379663-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<style>
+.header{
+	text-align:center;
+	font: 40px "Trebuchet MS", Helvetica, sans-serif;
+	color:dimgrey;
+	margin:auto;
+}
+.bimg{
+	font: 10px "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#title {
+	font-family:calibri;
+	font-style:bold;
+	margin:auto;
+}
+</style>
+<style class="embedly-css">
+.art-bd-img{
+	object-fit:cover;
+	width:300px; 
+	max-height:320px;
+}
+
+.resp-media{
+	object-fit:cover;
+	width:300px; 
+	max-height:320px;
+	padding-bottom:100% !important;
+}
+
+.reddit-self{
+	text-overflow:ellipsis;
+	overflow:hidden;
+	width:100%; 
+	max-height:320px
+}
+
+div.embedly-card{
+	display:inline-block;
+	vertical-align:top;
+}
+</style>
+
+<script async src="https://embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	jsonData = $.ajax({
+		url: "https://polandballdb.github.io/data/date_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
+			
+	flairData = $.ajax({
+		url: "https://polandballdb.github.io/data/flair_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON;
+		
+	
+	function main() {
+		var year = 2019;
+		var month = 09;
+
+		var comics = 0;
+		
+		var lks = jsonData[2019][9]
+		
+		for (var day in lks){
+			if (comics == 0) {
+				comics = lks[day];
+			} else {
+				comics = comics.concat(lks[day]);
+			}
+		}
+		
+		
+		if (comics !== undefined) {
+			for (var i = 0; i < comics.length; i++) {
+				var id = comics[i];
+				if (!(flairData['repost'].includes(id))){
+					document.getElementById(year.toString()).innerHTML += '<blockquote class="reddit-card" data-card-width="320px" data-card-preview="1"><a href="https://www.reddit.com/r/polandball/comments/'+id+'/"></a></blockquote>';
+				}
+			}
+		}
+
+	}
+
+
+</script>
+</head>
+<body onload="main()">
+<p class="header">LKS 2019</p><hr><div id="2019"></div>
+</div>
+
+
+</body>
+</html>
