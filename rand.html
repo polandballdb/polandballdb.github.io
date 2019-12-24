@@ -1,0 +1,14 @@
+<html> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	ids = $.ajax({
+		url: "https://polandballdb.github.io/data/sub_ids.json",
+		dataType: "json",
+		async: false
+		}).responseJSON['polandball'];
+	
+	window.location = "https://redd.it/" + ids[Math.floor(Math.random()*ids.length)];
+</script>
+  
+</body>
+</html>
