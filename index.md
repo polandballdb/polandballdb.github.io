@@ -27,7 +27,7 @@
 * [Live Feed](/live)  
 > Live visualization of r/polandball's front page and submission scores. Useful for timing submissions and tracking how well your post is doing.
 
-* [Polandball Randomizer](/random) 
+* [Randomizer](/random) 
 > Lightweight polandball reader, randomly browse over 18k polandball comics in your browser. Saves progress so you will never read the same comic twice. Optimised for desktop with keyboard controls for faster viewing.
 
 * [Contest Race](/contest/race)  
